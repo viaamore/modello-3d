@@ -36,11 +36,22 @@
             text-decoration: none;
             border-radius: 5px;
             margin-top: 20px;
+            cursor: pointer;
         }
         .btn:hover {
             background: #0056b3;
         }
     </style>
+    <script>
+        function copiaLink() {
+            const link = window.location.href;
+            navigator.clipboard.writeText(link).then(() => {
+                alert("Link copiato negli appunti!");
+            }).catch(err => {
+                console.error("Errore nel copiare il link: ", err);
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -51,8 +62,7 @@
         <iframe class="model-container" src="modello.html"></iframe>
         
         <a href="modello.html" class="btn" target="_blank">Apri a Schermo Intero</a>
-        <a href="#" class="btn">Scarica il Modello</a>
-        <a href="mailto:tuaemail@example.com" class="btn">Contattami</a>
+        <button class="btn" onclick="copiaLink()">Copia Link</button>
     </div>
 </body>
 </html>
